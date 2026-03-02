@@ -89,7 +89,7 @@ transform:translateY(-5px);
 box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* DETAILS (FIXED VERSION) */
+/* DETAILS */
 .service-details{
 max-width:600px;
 margin:20px auto 0;
@@ -236,11 +236,17 @@ font-size:14px;
 
 <section id="programare">
 <h2>Programare Online</h2>
-<form>
-<input type="text" placeholder="Nume complet" required>
-<input type="email" placeholder="Email" required>
-<input type="text" id="data" placeholder="Data (DD/MM/YY)" required>
-<textarea placeholder="Mesaj sau serviciul dorit"></textarea>
+
+<form action="https://formsubmit.co/nailradiancee@gmail.com" method="POST">
+<input type="text" name="Nume" placeholder="Nume complet" required>
+<input type="email" name="Email" placeholder="Email" required>
+<input type="text" name="Data" id="data" placeholder="Data (DD/MM/YY)" required>
+<textarea name="Mesaj" placeholder="Mesaj sau serviciul dorit"></textarea>
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Programare nouă - Nail Elegance Studio">
+<input type="hidden" name="_template" value="table">
+
 <button type="submit">Trimite</button>
 </form>
 </section>
