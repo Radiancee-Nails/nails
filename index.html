@@ -1,181 +1,289 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nail Elegance Studio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nail Elegance Studio</title>
 
-        header {
-            background-color: #f8c8dc;
-            padding: 15px;
-            text-align: center;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#fff;color:#333;scroll-behavior:smooth;}
 
-        header h1 {
-            margin: 0;
-        }
+/* HEADER */
+header{
+background:#f8c8dc;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:10;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+transition:.3s;
+}
+nav a:hover{color:#fff;}
 
-        nav {
-            margin-top: 10px;
-        }
+/* HERO */
+.hero{
+background:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:120px 20px;
+position:relative;
+}
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.4);
+}
+.hero h2,.hero .btn{
+position:relative;
+z-index:1;
+}
+.hero h2{
+font-size:42px;
+margin-bottom:20px;
+}
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#f49ac2;
+color:#fff;
+text-decoration:none;
+border-radius:5px;
+transition:.3s;
+}
+.btn:hover{
+background:#f8c8dc;
+color:#333;
+}
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+/* SECTIONS */
+section{padding:60px 20px;text-align:center;}
+section h2{margin-bottom:20px;color:#f49ac2;}
 
-        .hero {
-            background: url('https://images.unsplash.com/photo-1604654894610-df63bc536371') no-repeat center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
+/* CARDS */
+.services{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+.card{
+background:#f8f8f8;
+padding:20px;
+width:250px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
 
-        .hero h2 {
-            font-size: 40px;
-        }
+/* DETAILS (FIXED VERSION) */
+.service-details{
+max-width:600px;
+margin:20px auto 0;
+text-align:left;
+}
+.detail{
+opacity:0;
+max-height:0;
+overflow:hidden;
+transform:translateY(15px);
+transition:all .4s ease;
+background:#fdf0f5;
+border-radius:8px;
+border:1px solid #f8c8dc;
+margin-top:15px;
+padding:0 15px;
+}
+.detail img{
+width:100%;
+border-radius:8px;
+margin-bottom:10px;
+}
+.detail.active{
+opacity:1;
+max-height:1000px;
+transform:translateY(0);
+padding:15px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #f8c8dc;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+/* FORM */
+form{
+max-width:450px;
+margin:auto;
+display:flex;
+flex-direction:column;
+}
+input,textarea{
+margin:12px 0;
+padding:12px;
+border-radius:5px;
+border:1px solid #ccc;
+font-size:16px;
+}
+textarea{resize:vertical;min-height:80px;}
+form button{
+padding:12px;
+border:none;
+border-radius:5px;
+background:#f49ac2;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+form button:hover{
+background:#f8c8dc;
+color:#333;
+}
 
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
+/* FOOTER */
+footer{
+background:#333;
+color:#fff;
+padding:25px;
+text-align:center;
+font-size:14px;
+}
 
-        .services {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #f8f8f8;
-            padding: 20px;
-            width: 250px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        form {
-            max-width: 400px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        input, textarea {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .services {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+/* RESPONSIVE */
+@media(max-width:768px){
+.services{flex-direction:column;align-items:center;}
+.hero h2{font-size:32px;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>Nail Elegance Studio</h1>
-    <nav>
-        <a href="#despre">Despre</a>
-        <a href="#servicii">Servicii</a>
-        <a href="#programare">Programare</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h1>Nail Elegance Studio</h1>
+<nav>
+<a href="#despre">Despre</a>
+<a href="#servicii">Servicii</a>
+<a href="#programare">Programare</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <div class="hero">
-    <h2>Frumusețe. Profesionalism. Răsfăț.</h2>
-    <a href="#programare" class="btn">Programează-te acum</a>
+<h2>Frumusețe. Profesionalism. Răsfăț.</h2>
+<a href="#programare" class="btn">Programează-te acum</a>
 </div>
 
 <section id="despre">
-    <h2>Despre Noi</h2>
-    <p>Suntem o clinică profesională de unghii dedicată frumuseții și îngrijirii mâinilor și picioarelor tale. Folosim produse premium și respectăm cele mai stricte norme de igienă.</p>
+<h2>Despre Noi</h2>
+<p>Suntem un salon dedicat frumuseții și îngrijirii unghiilor. Profesionalism și produse premium.</p>
 </section>
 
 <section id="servicii">
-    <h2>Serviciile Noastre</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Manichiură</h3>
-            <p>Clasică – 80 lei</p>
-            <p>Semipermanentă – 120 lei</p>
-        </div>
-        <div class="card">
-            <h3>Pedichiură</h3>
-            <p>Cosmetică – 100 lei</p>
-            <p>Cu gel – 150 lei</p>
-        </div>
-        <div class="card">
-            <h3>Nail Art</h3>
-            <p>Design simplu – 30 lei</p>
-            <p>Design premium – 60+ lei</p>
-        </div>
-    </div>
+<h2>Serviciile Noastre</h2>
+
+<div class="services">
+<div class="card" data-service="manichiura">
+<h3>Manichiură</h3>
+<p>Clasică – 80 lei</p>
+<p>Semipermanentă – 120 lei</p>
+</div>
+
+<div class="card" data-service="pedichiura">
+<h3>Pedichiură</h3>
+<p>Cosmetică – 100 lei</p>
+<p>Cu gel – 150 lei</p>
+</div>
+
+<div class="card" data-service="nailart">
+<h3>Nail Art</h3>
+<p>Design simplu – 30 lei</p>
+<p>Design premium – 60+ lei</p>
+</div>
+</div>
+
+<div class="service-details">
+
+<div id="manichiura" class="detail">
+<img src="https://images.unsplash.com/photo-1598012811920-2f54b49e46d3?auto=format&fit=crop&w=800&q=80">
+<p><strong>Clasică:</strong> curățare, pilire, lac.</p>
+<p><strong>Semipermanentă:</strong> rezistență 2-3 săptămâni.</p>
+</div>
+
+<div id="pedichiura" class="detail">
+<img src="https://images.unsplash.com/photo-1614288185745-3e17b9d5c2d1?auto=format&fit=crop&w=800&q=80">
+<p><strong>Cosmetică:</strong> îngrijire completă.</p>
+<p><strong>Cu gel:</strong> finisaj lucios și durabil.</p>
+</div>
+
+<div id="nailart" class="detail">
+<img src="https://images.unsplash.com/photo-1614288185756-420a1b36d9ec?auto=format&fit=crop&w=800&q=80">
+<p><strong>Design simplu:</strong> modele elegante.</p>
+<p><strong>Design premium:</strong> pietre, glitter, personalizat.</p>
+</div>
+
+</div>
 </section>
 
 <section id="programare">
-    <h2>Programare Online</h2>
-   <form action="https://formsubmit.co/nailradiancee@gmail.com" method="POST">
-    <input type="text" name="Nume" placeholder="Nume complet" required>
-    <input type="email" name="Email" placeholder="Email" required>
-    <input type="date" name="Data" required>
-    <textarea name="Mesaj" placeholder="Mesaj sau serviciul dorit"></textarea>
-
-    <!-- dezactivează captcha -->
-    <input type="hidden" name="_captcha" value="false">
-
-    <!-- redirect după trimitere -->
-    <input type="hidden" name="_next" value="https://google.com">
-
-    <button type="submit" class="btn">Trimite</button>
+<h2>Programare Online</h2>
+<form>
+<input type="text" placeholder="Nume complet" required>
+<input type="email" placeholder="Email" required>
+<input type="text" id="data" placeholder="Data (DD/MM/YY)" required>
+<textarea placeholder="Mesaj sau serviciul dorit"></textarea>
+<button type="submit">Trimite</button>
 </form>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>📍 Str. Frumuseții 25,Brasov</p>
-    <p>📞 0735 625 157</p>
-    <p>📧 contact nailradiancee@gmail.com</p>
-    <p>Program: L-V 10:00–20:00 | S 10:00–18:00</p>
+<h2>Contact</h2>
+<p>📍 Str. Frumuseții 25, Brașov</p>
+<p>📞 0735 625 157</p>
+<p>📧 nailradiancee@gmail.com</p>
 </section>
 
 <footer>
-    © 2026 Nail Elegance Studio | Toate drepturile rezervate
+© 2026 Nail Elegance Studio
 </footer>
+
+<script>
+const cards=document.querySelectorAll('.card');
+const details=document.querySelectorAll('.detail');
+
+cards.forEach(card=>{
+card.addEventListener('click',()=>{
+const service=card.dataset.service;
+const selected=document.getElementById(service);
+
+if(selected.classList.contains('active')){
+selected.classList.remove('active');
+return;
+}
+
+details.forEach(d=>d.classList.remove('active'));
+selected.classList.add('active');
+});
+});
+
+/* DATE FORMAT */
+const dataInput=document.getElementById('data');
+dataInput.addEventListener('input',()=>{
+let val=dataInput.value.replace(/\D/g,'');
+if(val.length>2) val=val.slice(0,2)+'/'+val.slice(2);
+if(val.length>5) val=val.slice(0,5)+'/'+val.slice(5,7);
+dataInput.value=val;
+});
+</script>
 
 </body>
 </html>
